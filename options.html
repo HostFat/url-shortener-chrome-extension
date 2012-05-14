@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		Custom URL Shortener Options
+		CoinURL Shortener Options
 	</title>
 	<style>
 		body {
@@ -15,18 +15,18 @@
 	</style>
 	<script>
 		function saveOptions(){
-			var service = document.getElementById('service').value;
+			var uuid = document.getElementById('uuid').value;
 			var status = document.getElementById('status');
 			
-			if (service != ""){
-				localStorage['url_service'] = service;
+			if (uuid != ""){
+				localStorage['uuid'] = uuid;
 				
 				// let them know it's ok
 				status.innerHTML = "Options Saved";
-				showService();
+				showuuid();
 			}
 			else {
-				status.innerHTML = "Error - Incorrect Service";
+				status.innerHTML = "Error - Incorrect Uuid";
 			}
 			
 			// make the ok go away
@@ -35,16 +35,16 @@
 			  }, 2000);
 		}
 		
-		function showService(){
-			document.getElementById("old-service").innerHTML = localStorage['url_service'];
+		function showuuid(){
+			document.getElementById("old-uuid").innerHTML = localStorage['uuid'];
 		}
 	</script>
 </head>
-<body onload="showService()">
+<body onload="showuuid()">
 	<div id='content'>
-		Service: http://<span id='old-service'></span>
+		Uuid:<span id='old-uuid'></span>
 		<br><br>
-		New Service: <br>http://<input type='text' size=30 id='service'/>
+		New Uuid: <input type='text' size=30 id='uuid'/>
 		<br><br>
 		<button value='Save Options' onclick='saveOptions()'>Save Options</button>
 		<br><br>
