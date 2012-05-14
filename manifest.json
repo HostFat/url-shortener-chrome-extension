@@ -1,8 +1,7 @@
 {
-	"name": "Custom URL Shortener",
-	"version": "0.3",
-	"description": "Shortens URLs with a custom service",
-	"update_url": "http://ablu.us/custom_update.xml",
+	"name": "CoinURL Shortener",
+	"version": "0.1",
+	"description": "Shortens URLs with CoinURL service",
 	"background_page": "background.html",
 	"options_page": "options.html",
 	"icons": {
