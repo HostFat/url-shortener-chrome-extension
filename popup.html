@@ -19,7 +19,7 @@ a {
 // get url to be shortened
 // .getSelected is apparently asynchronous
 chrome.tabs.getSelected(null, function(tab){
-	if (localStorage['url_service'] == undefined){
+	if (localStorage['uuid'] == undefined){
 		failFunction();
 	}
 	else{
@@ -33,11 +33,7 @@ chrome.tabs.getSelected(null, function(tab){
 
 
 		// request to url server
-		req.open(
-			"GET",
-			"http://"+localStorage['url_service']+escape(tab.url),
-			true
-		);
+		req.open("GET","http://coinurl.com/api.php?uuid="+localStorage['uuid']+"&url="+(tab.url),true);
 
 		// do things when the request gets returned
 		req.onload = function() {
@@ -74,7 +70,7 @@ chrome.tabs.getSelected(null, function(tab){
 
 	function failFunction(){
 		var fail = document.createElement("a");
-		fail.innerHTML = "Set Shortener";
+		fail.innerHTML = "Set Uuid";
 		fail.href = "#";
 		fail.onclick = function(){
 			chrome.tabs.create({"url": chrome.extension.getURL('options.html')});
